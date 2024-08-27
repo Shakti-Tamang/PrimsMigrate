@@ -33,6 +33,7 @@
     "class-validator": "^0.14.1",
     "decimal.js": "^10.4.3",
     "jsonwebtoken": "^9.0.2",
+    "nodemon": "^3.1.4",
     "passport": "^0.7.0",
     "passport-jwt": "^4.0.1",
     "passport-local": "^1.0.0",
