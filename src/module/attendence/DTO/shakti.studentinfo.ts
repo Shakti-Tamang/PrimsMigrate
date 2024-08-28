@@ -1,10 +1,9 @@
 import { Role } from '@prisma/client';
-import { IsString, IsNotEmpty, IsEmail, IsBoolean, IsArray } from 'class-validator';
+import { IsString, IsNotEmpty, IsEmail, IsBoolean, IsArray, IsUUID, IsOptional } from 'class-validator';
 
 
 export class CreateUserDto {
-  @IsString()
-  @IsNotEmpty()
+  @IsUUID()
   id: string;
 
   @IsEmail()
@@ -31,8 +30,8 @@ export class CreateUserDto {
   gender: string;
 
   @IsString()
-  @IsNotEmpty()
-  image: string;  // Change this to be required
+  @IsNotEmpty() // Ensure `image` is required
+  image: string;
 
   @IsNotEmpty()
   createdDate: Date;
@@ -46,4 +45,13 @@ export class CreateUserDto {
 
   @IsArray()
   roles: Role[];
+
+  @IsString()
+  @IsNotEmpty()
+  rmark: string;
+
+  @IsString()
+@IsOptional()
+  attendanceId: string;
+
 }

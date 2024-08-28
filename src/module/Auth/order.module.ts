@@ -9,6 +9,7 @@ import { AuthRepo } from './Repo/auth.repo';
 import { PrismaService } from 'src/Prisma/prisma.service';
 
 import { PGDatabaseService } from 'src/core/Database/pg.database.service';
+import { JwtStrategy } from '../Strategy';
 
 @Module({
     imports: [
@@ -21,13 +22,13 @@ import { PGDatabaseService } from 'src/core/Database/pg.database.service';
     controllers: [AuthController],
     providers: [
       AuthService,
-    //   JwtStrategy,
+      JwtStrategy,
       AuthRepo,
       PrismaService,
       PGDatabaseService,
     ],
     exports: [AuthService, 
-        // JwtStrategy
+        JwtStrategy
     ],
   })
 export class AuthModule {}

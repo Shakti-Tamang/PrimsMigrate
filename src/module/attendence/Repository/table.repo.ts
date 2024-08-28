@@ -36,6 +36,18 @@ export class attendenceRepo extends BaseRepository<User>{
         });
       }
 
+      async findUnique(email: string): Promise<User | null> {
+        return await this.pgDatabaseServise.prismaRead.user.findUnique({
+          where: { email: email },
+        });
+      }
+
+      async findUniqueBypassword(password: string): Promise<User | null> {
+        return await this.pgDatabaseServise.prismaRead.user.findUnique({
+          where: { password: password},
+        });
+      }
+
       async update(id: string,item:User): Promise<User> {
         return await this.pgDatabaseServise.prismaWrite.user.update({
             where: { id: id },

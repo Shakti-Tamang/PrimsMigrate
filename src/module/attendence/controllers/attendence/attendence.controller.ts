@@ -19,6 +19,12 @@ async saveuser(@Body() dto:CreateUserDto){
  return await this.attendence.create(dto);
 }
 
+@Post("/signInUser")
+async signIn(@Body() dto:CreateUserDto){
+return await this.attendence.signIn(dto);
+
+}
+
 @Get("/getUser")
 async getUser():Promise<CreateUserDto[]>{
 return await  this.attendence.getAll(); 
