@@ -14,6 +14,10 @@ datasource db {
 }
 
 model User {
+
+    // userId       String @map("user_id") // Changes the column name to 'user_id' in the database
+
+
   id             String       @id @default(uuid())
   email          String       @unique
   password       String       @unique
@@ -36,13 +40,16 @@ model User {
   homeworks      Homework[]  // One-to-many relationship with Homework
 
     Authorization Authorization[]
-}
 
+
+
+  // email is unique so it is not necessary to make index beacuse it is unique whixh its makes fatser to get email;
+        @@index([contact], name: "post_user_idx", type: BTree)
+}
 model Attendance {
   id        String   @id @default(uuid())
   date      DateTime
   status    String
-
   // One-to-One relationship with User
   user      User?    @relation // Automatically inferred by Prisma from User model
 
@@ -51,7 +58,7 @@ model Attendance {
 
 model Homework {
   id           Int     @id @default(autoincrement())
-  topic        String?
+  topic        String? @map("homeworkTopic")
   status       String
   userId       String // Foreign key to User
   user         User    @relation(fields: [userId], references: [id])

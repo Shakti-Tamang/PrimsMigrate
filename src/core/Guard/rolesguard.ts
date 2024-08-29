@@ -12,7 +12,7 @@ import {
 
   import { parse } from 'url';
 import { PrismaService } from 'src/Prisma/prisma.service';
-import { AuthService } from 'src/module/Auth/service/auth/auth.service';
+
 
 import { JwtPayload } from 'jsonwebtoken';
 import { PGDatabaseService } from '../Database/pg.database.service';

@@ -5,9 +5,9 @@ import { PGDatabaseService } from 'src/core/Database/pg.database.service';
 import { attendenceRepo } from './Repository/table.repo';
 import { AttendenceController } from './controllers/attendence/attendence.controller';
 import { ConfigModule } from '@nestjs/config';
-import { JwtModule, JwtService } from '@nestjs/jwt';
-import { JwtStrategy } from '../Strategy';
+import { JwtModule } from '@nestjs/jwt';
 
+/*only requred are kept in the modules*/
 @Module({
  imports: [
     ConfigModule,
@@ -16,9 +16,9 @@ import { JwtStrategy } from '../Strategy';
       isGlobal: true,
     }),
   ],
-    providers: [AttendenceService, PGDatabaseService, attendenceRepo,JwtService],
+    providers: [AttendenceService, PGDatabaseService, attendenceRepo],
   controllers: [AttendenceController],
 
-  exports:[AttendenceService, JwtStrategy],
+  exports:[AttendenceService],
 })
 export class AttendenceModule {}
