@@ -13,6 +13,9 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+
+
+// for user
 model User {
 
     // userId       String @map("user_id") // Changes the column name to 'user_id' in the database

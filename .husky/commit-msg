@@ -1,10 +1,5 @@
-# What It Does:
-
-# When It Runs: This script executes after you write a commit message but before the commit is finalized.
-# Purpose: It typically checks that your commit message follows certain guidelines or a specific format (like using conventional commits). If the commit message doesn't meet the criteria, it will prevent the commit. This helps maintain a clean, understandable commit history.
-
+# .husky/commit-msg
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
 npx commitlint --edit "$1"
-

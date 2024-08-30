@@ -1,21 +1,5 @@
-# What It Does:
-
-# When It Runs: This script runs automatically every time you attempt to make a commit.
-# Purpose: It checks your code for any formatting or syntax errors by running a linter
-#  (like ESLint or Prettier). If the linter finds errors, it will prevent the commit from proceeding. 
-#  This ensures that all code committed to the repository meets the code style and quality standards set 
-#  by your project.
-
-
-
+# .husky/pre-commit
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-# Run lint-staged if you have it set up
 npx lint-staged
-
-# Or, run your linter or formatter directly
-# npx eslint . --fix
-# npx prettier --write .
-
-
