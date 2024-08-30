@@ -15,6 +15,8 @@ constructor (private attendence:AttendenceService){
 }
 
 
+// it is for attendence api
+
 @Post("/saveUser")
 async saveuser(@Body() dto:CreateUserDto){
  return await this.attendence.create(dto);
